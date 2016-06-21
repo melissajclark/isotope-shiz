@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width">
+	<title>Isotope Fun</title>
+</head>
+<body>
+
+	<header class="content">
+		<h1>Isotope Shiz</h1>
+		<p>Experimenting with <a href="http://isotope.metafizzy.co/">Isotope</a> methods for filtering content.</p>
+	</header>
+
+	<div class="button-group filters-button-group content">
+	  <button class="button is-checked" data-filter="*">Show All</button>
+	  <button class="button" data-filter=".grid__box--gold">Gold</button>
+	  <button class="button" data-filter=".grid__box--silver">Silver</button>
+	  <button class="button" data-filter=".grid__box--teal">Teal</button>
+	  <button class="button" data-filter=":not(.grid__box--gold):not(.grid__box--silver)">Not Gold or Silver or Teal</button>
+	</div>
+
+	<main class="content grid__boxes clearfix">
+		<div class="grid__box grid__box--gold">
+			<p> I am a box</p>
+		</div>
+
+		<div class="grid__box">
+			<p>I am a box with lots of content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi nostrum, officiis. Expedita nihil eius, ducimus ipsam unde neque reiciendis aut aperiam! Natus, ipsam, expedita. Autem mollitia excepturi atque. Illum.</p>
+		</div>
+
+		<div class="grid__box">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box grid__box--teal">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box grid__box--silver">
+			<p>I am a box with lots of content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi nostrum, officiis. Expedita nihil eius, ducimus ipsam unde neque reiciendis aut aperiam! Natus, ipsam, expedita. Autem mollitia excepturi atque. Illum.</p>
+			<p>I am a box with lots of content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi nostrum, officiis. Expedita nihil eius, ducimus ipsam unde neque reiciendis aut aperiam! Natus, ipsam, expedita. Autem mollitia excepturi atque. Illum.</p>
+		</div>
+
+		<div class="grid__box">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box grid__box--silver">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box symbol">
+			<p>I am a box with lots of content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi nostrum, officiis. Expedita nihil eius, ducimus ipsam unde neque reiciendis aut aperiam! Natus, ipsam, expedita. Autem mollitia excepturi atque. Illum.</p>
+		</div>
+
+		<div class="grid__box">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box grid__box--teal">
+			<p>I am a box with lots of content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi nostrum, officiis. Expedita nihil eius, ducimus ipsam unde neque reiciendis aut aperiam! Natus, ipsam, expedita. Autem mollitia excepturi atque. Illum.</p>
+		</div>
+
+		<div class="grid__box">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box grid__box--gold"> 
+			<p>I am a box</p>
+		</div>
+
+
+		<div class="grid__box grid__box--gold">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box grid__box--silver">
+			<p>I am a box with lots of content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi nostrum, officiis. Expedita nihil eius, ducimus ipsam unde neque reiciendis aut aperiam! Natus, ipsam, expedita. Autem mollitia excepturi atque. Illum.</p>
+		</div>
+
+		<div class="grid__box grid__box--teal">
+			<p>I am a box with lots of content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eligendi nostrum, officiis. Expedita nihil eius, ducimus ipsam unde neque reiciendis aut aperiam! Natus, ipsam, expedita. Autem mollitia excepturi atque. Illum.</p>
+		</div>
+
+		<div class="grid__box grid__box--gold">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box grid__box--silver">
+			<p>I am a box</p>
+		</div>
+
+		<div class="grid__box">
+			<p>I am a box</p>
+		</div>
+	</main>
+
+	<footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="isotope.js"></script>
+		<script>
+			$(function() {
+				var $grid = $('.grid__boxes');
+				// bind filter button click
+				$('.filters-button-group').on( 'click', 'button', function() {
+				  var filterValue = $( this ).attr('data-filter');
+				  // use filterFn if matches value
+				  $grid.isotope({ filter: filterValue });
+				});
+				// change is-checked class on buttons
+				$('.button-group').each( function( i, buttonGroup ) {
+				  var $buttonGroup = $( buttonGroup );
+				  $buttonGroup.on( 'click', 'button', function() {
+				    $buttonGroup.find('.is-checked').removeClass('is-checked');
+				    $( this ).addClass('is-checked');
+				  });
+				});
+			});
+		</script>
+	</footer>
+	
+</body>
+</html>
